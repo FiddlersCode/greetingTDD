@@ -5,10 +5,6 @@ by Paula Muldoon and Ryan Benoumechiara
 This was a training exercise at Kurt Geiger.  We initially didn't plan to commit this to git - hence having six tests in a single commit.
 
 ---
-
-## 
-View the repository [here](https://github.com/pmuldoon86/instagram-challenge) on GitHub
----
 ## Processes
 * TDD
 
