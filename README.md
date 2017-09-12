@@ -4,6 +4,9 @@ by Paula Muldoon and Ryan Benoumechiara
 ### About
 This was a training exercise at Kurt Geiger.  We initially didn't plan to commit this to git - hence having six tests in a single commit.
 
+### Instructions
+- Run `composer init` and create the `composer.json` file
+- To run tests: `phpunit tests`
 ---
 ## Processes
 * TDD
