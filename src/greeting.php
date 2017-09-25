@@ -3,30 +3,62 @@
 class Greeting {
 
     public function greet($name) {
-        if ($name == null) {
-            return 'Hello, my friend.';
+        if (!$name) {
+            return $this->returnNullNameGreeting();
         } else if(ctype_upper($name)){
-            return 'HELLO ' . $name;
-        } else if (is_array($name) && $this->checkMixedGreeting($name)){
+            return $this->returnUppercaseGreeting($name);
+        } else if ($this->checkMixedGreeting($name)) {
             return $this->returnMixedGreeting($name);
-        } else if (is_array($name) && count($name) < 3){
-            return 'Hello, ' . implode(' and ', $name);
-        } else if (is_array($name) && count($name) > 2) {
-            $name[(count($name) - 1)] = 'and ' . $name[(count($name) - 1)];
-            return 'Hello, ' . implode(', ', $name) . '.';
+        } else if ($this->isArrayLessThan3($name)) {
+            return $this->returnArrayLessThan3($name);
+        } else if ($this->isArrayMoreThan2($name)) {
+            return $this->returnArrayMoreThan2($name);
         }
-        else {
-            return 'Hello, ' . $name;
-        }
+            return $this->returnStandardGreeting($name);
+//        Lewis, how should line 17 be indented?
 
+
+    }
+
+    private function returnNullNameGreeting()
+    {
+        return 'Hello, my friend.';
+    }
+
+    private function returnUppercaseGreeting($name)
+    {
+       return 'HELLO ' . $name;
+    }
+
+    private function isArrayLessThan3($array)
+    {
+       return is_array($array) && count($array) < 3;
+    }
+
+    private function returnArrayLessThan3($array)
+    {
+        return 'Hello, ' . implode(' and ', $array);
+    }
+
+    private function isArrayMoreThan2($array)
+    {
+        return is_array($array) && count($array) > 2;
+    }
+
+    private function returnArrayMoreThan2($array)
+    {
+        $array[(count($array) - 1)] = 'and ' . $array[(count($array) - 1)];
+        return 'Hello, ' . implode(', ', $array) . '.';
     }
 
     private function checkMixedGreeting($names)
     {
-        foreach ($names as $name) {
-            if (ctype_upper($name)){
-                return true;
-                break;
+        if (is_array($names)) {
+            foreach ($names as $name) {
+                if (ctype_upper($name)) {
+                    return true;
+                    break;
+                }
             }
         }
     }
@@ -37,17 +69,21 @@ class Greeting {
         foreach ($names as $name)
         {
             if (ctype_upper($name)) {
-                $upperGreeting = '. AND HELLO ' . $name . '!';
+                $upperGreeting = 'AND HELLO ' . $name . '!';
+//                Lewis, is it best practice to define a variable at the top of the class?  Line 79 is shouting at me.
                 unset ($names[$i]);
             }
             $i++;
 
         }
-        return 'Hello, ' . implode(' and ', $names) . $upperGreeting;
+        return 'Hello, ' . implode(' and ', $names) . '. ' . $upperGreeting;
 
     }
 
-
+    private function returnStandardGreeting($name)
+    {
+        return 'Hello, ' . $name;
+    }
 }
 
 

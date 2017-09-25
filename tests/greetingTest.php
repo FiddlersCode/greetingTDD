@@ -46,13 +46,13 @@ class GreetingTest extends TestCase {
         $names = ['Amy', 'BRIAN', 'Charlotte'];
         $this->assertEquals($this->greeting->greet($names), 'Hello, Amy and Charlotte. AND HELLO BRIAN!');
     }
-
+//
 //    public function testMixedCaseNames2()
 //    {
 //        $names = ['Amy', 'BRIAN', 'Charlotte', 'PAULA'];
 //        $this->assertEquals($this->greeting->greet($names), 'Hello, Amy and Charlotte.  AND HELLO BRIAN AND PAULA!');
 //    }
-//
+
 //    public function testMixedCaseNames3()
 //    {
 //        $names = ['Amy', 'BRIAN', 'Charlotte', 'PAULA', 'MARIE'];
