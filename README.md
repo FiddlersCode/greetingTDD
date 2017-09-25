@@ -1,5 +1,5 @@
 # Greeting Kata TDD
-by Paula Muldoon and Ryan Benoumechiara
+by Paula Muldoon
 
 ### About
 This was a training exercise at Kurt Geiger.  We initially didn't plan to commit this to git - hence having six tests in a single commit.

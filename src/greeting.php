@@ -5,12 +5,15 @@ class Greeting {
     public function greet($name) {
         if (!$name) {
             return $this->returnNullNameGreeting();
-        } else if(ctype_upper($name)){
+        } else if(ctype_upper($name)) {
             return $this->returnUppercaseGreeting($name);
         } else if ($this->checkMixedGreeting($name)) {
             return $this->returnMixedGreeting($name);
         } else if ($this->isArrayLessThan3($name)) {
-            return $this->returnArrayLessThan3($name);
+            if ($this->checkItemHas2Names($name)) {
+                return $this->splitItemsWith2Names($name);
+            } else {
+               return $this->returnArrayLessThan3($name);}
         } else if ($this->isArrayMoreThan2($name)) {
             return $this->returnArrayMoreThan2($name);
         }
@@ -84,9 +87,31 @@ class Greeting {
     {
         return 'Hello, ' . $name;
     }
+
+    private function checkItemHas2Names($names)
+    {
+        foreach ($names as $name) {
+            if (strpos($name, ',')) {
+                return true;
+            }
+        }
+    }
+
+    private function splitItemsWith2Names($names)
+    {
+        $splitNames = [];
+        $allNames = [];
+        foreach ($names as $name) {
+            if (strpos($name, ',')) {
+                $splitNames = preg_split("/[\s,]+/", $name);
+            } else {
+                array_push($allNames, $name);
+            }
+        }
+
+        $allNames = array_merge($allNames, $splitNames);
+
+        return ($this->returnArrayMoreThan2($allNames));
+    }
 }
-
-
-?>
-
 
