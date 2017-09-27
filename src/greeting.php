@@ -12,8 +12,7 @@ class Greeting {
         } else if ($this->isArrayLessThan3($name)) {
             if ($this->checkItemHas2Names($name)) {
                 return $this->splitItemsWith2Names($name);
-            } else {
-               return $this->returnArrayLessThan3($name);}
+            }   return $this->returnArrayLessThan3($name);
         } else if ($this->isArrayMoreThan2($name)) {
             return $this->returnArrayMoreThan2($name);
         }
@@ -38,9 +37,9 @@ class Greeting {
        return is_array($array) && count($array) < 3;
     }
 
-    private function returnArrayLessThan3($array)
+    public function returnArrayLessThan3($array)
     {
-        return 'Hello, ' . implode(' and ', $array);
+        return 'Hello, ' . implode(' and ', $array) . '.';
     }
 
     private function isArrayMoreThan2($array)
@@ -112,6 +111,18 @@ class Greeting {
         $allNames = array_merge($allNames, $splitNames);
 
         return ($this->returnArrayMoreThan2($allNames));
+    }
+
+    public function removeDoubleQuotes($names)
+    {
+        $noCommaNames = [];
+        foreach ($names as $name) {
+            $quoteMark = '"';
+            $name = preg_replace("/[$quoteMark]+/", '', $name);
+            array_push($noCommaNames, $name);
+        }
+
+        return ($this->returnArrayLessThan3($noCommaNames));
     }
 }
 

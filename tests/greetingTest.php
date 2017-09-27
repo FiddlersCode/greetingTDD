@@ -32,7 +32,7 @@ class GreetingTest extends TestCase {
     public function testGreetingSplat()
     {
         $names = ['Ryan', 'Paula'];
-        $this->assertEquals('Hello, Ryan and Paula', $this->greeting->greet($names));
+        $this->assertEquals('Hello, Ryan and Paula.', $this->greeting->greet($names));
     }
 
     public function testGreeting3Names()
@@ -46,25 +46,19 @@ class GreetingTest extends TestCase {
         $names = ['Amy', 'BRIAN', 'Charlotte'];
         $this->assertEquals('Hello, Amy and Charlotte. AND HELLO BRIAN!', $this->greeting->greet($names));
     }
-//
-//    public function testMixedCaseNames2()
-//    {
-//        $names = ['Amy', 'BRIAN', 'Charlotte', 'PAULA'];
-//        $this->assertEquals($this->greeting->greet($names), 'Hello, Amy and Charlotte.  AND HELLO BRIAN AND PAULA!');
-//    }
-
-//    public function testMixedCaseNames3()
-//    {
-//        $names = ['Amy', 'BRIAN', 'Charlotte', 'PAULA', 'MARIE'];
-//        $this->assertEquals($this->greeting->greet($names), 'Hello, Amy and Charlotte.  AND HELLO BRIAN, PAULA, AND MARIE!');
-//
-//    }
 
     public function testCommaInString()
     {
         $names = ['Ryan', 'Paula, Spock'];
         $this->assertEquals('Hello, Ryan, Paula, and Spock.', $this->greeting->greet($names));
     }
+
+    public function testEscapedCommas()
+    {
+        $names = ["Ryan", "\"Paula, Spock\""];
+        $this->assertEquals('Hello, Ryan and Paula, Spock.', $this->greeting->removeDoubleQuotes($names));
+    }
+
 
 }
 
