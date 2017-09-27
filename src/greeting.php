@@ -7,7 +7,7 @@ class Greeting {
             return $this->returnNullNameGreeting();
         } else if(ctype_upper($name)) {
             return $this->returnUppercaseGreeting($name);
-        } else if ($this->checkMixedGreeting($name)) {
+        } else if ($this->isMixedGreeting($name)) {
             return $this->returnMixedGreeting($name);
         } else if ($this->isArrayLessThan3($name)) {
             if ($this->checkItemHas2Names($name)) {
@@ -32,28 +32,28 @@ class Greeting {
        return 'HELLO ' . $name;
     }
 
-    private function isArrayLessThan3($array)
+    private function isArrayLessThan3($names)
     {
-       return is_array($array) && count($array) < 3;
+       return is_array($names) && count($names) < 3;
     }
 
-    public function returnArrayLessThan3($array)
+    public function returnArrayLessThan3($names)
     {
-        return 'Hello, ' . implode(' and ', $array) . '.';
+        return 'Hello, ' . implode(' and ', $names) . '.';
     }
 
-    private function isArrayMoreThan2($array)
+    private function isArrayMoreThan2($names)
     {
-        return is_array($array) && count($array) > 2;
+        return is_array($names) && count($names) > 2;
     }
 
-    private function returnArrayMoreThan2($array)
+    private function returnArrayMoreThan2($names)
     {
-        $array[(count($array) - 1)] = 'and ' . $array[(count($array) - 1)];
-        return 'Hello, ' . implode(', ', $array) . '.';
+        $names[(count($names) - 1)] = 'and ' . $names[(count($names) - 1)];
+        return 'Hello, ' . implode(', ', $names) . '.';
     }
 
-    private function checkMixedGreeting($names)
+    private function isMixedGreeting($names)
     {
         if (is_array($names)) {
             foreach ($names as $name) {
@@ -63,6 +63,7 @@ class Greeting {
                 }
             }
         }
+        //Lewis, is this nesting ok?  I think it's pretty clear what the code does but it's a bit deeper than I'd normally like.
     }
 
     private function returnMixedGreeting($names)
@@ -72,7 +73,7 @@ class Greeting {
         {
             if (ctype_upper($name)) {
                 $upperGreeting = 'AND HELLO ' . $name . '!';
-//                Lewis, is it best practice to define a variable at the top of the class?  Line 79 is shouting at me.
+//                Lewis, is it best practice to define a variable at the top of the class?  Line 82($upperGreetings) is shouting at me.
                 unset ($names[$i]);
             }
             $i++;
@@ -118,11 +119,12 @@ class Greeting {
         $noCommaNames = [];
         foreach ($names as $name) {
             $quoteMark = '"';
-            $name = preg_replace("/[$quoteMark]+/", '', $name);
+            $name = preg_replace("/[$quoteMark]/", '', $name);
+            // Lewis, any advantage to using preg_replace over str_replace?
             array_push($noCommaNames, $name);
         }
 
-        return ($this->returnArrayLessThan3($noCommaNames));
+        return $this->returnArrayLessThan3($noCommaNames);
     }
 }
 
