@@ -1,19 +1,23 @@
 <?php
-//
-//use PHPUnit\Framework\Testcase;
-//require_once './src/greeting.php';
-//
-//class UppercaseNameTest extends TestCase {
-//
-//    protected $greeting;
-//
-//    protected function setUp()
-//    {
-//        $this->greeting = new Greeting();
-//    }
-//
-//    public function testUppercaseNameGreeting()
-//    {
-//        $this->assertEquals("HELLO JERRY!", $this->greeting->greet("JERRY"));
-//    }
-//}
+
+use PHPUnit\Framework\Testcase;
+require_once './src/uppercaseName.php';
+
+class UppercaseNameTest extends TestCase {
+
+    protected $greeter;
+    protected $name;
+
+    protected function setUp()
+    {
+        $this->name = new UppercaseName("SPOCK");
+        $this->greeter = new Greeter();
+        $this->greeter->addName($this->name);
+
+    }
+
+    public function testUppercaseNameGreeting()
+    {
+        $this->assertEquals("HELLO SPOCK!", $this->greeter->greet());
+    }
+}
