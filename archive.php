@@ -24,22 +24,7 @@ class Greeting {
 
 
 
-    private function splitItemsWith2Names($names)
-    {
-        $splitNames = [];
-        $allNames = [];
-        foreach ($names as $name) {
-            if (strpos($name, ',')) {
-                $splitNames = preg_split("/[\s,]+/", $name);
-            } else {
-                array_push($allNames, $name);
-            }
-        }
 
-        $allNames = array_merge($allNames, $splitNames);
-
-        return ($this->returnArrayMoreThan2($allNames));
-    }
 
     public function removeDoubleQuotes($names)
     {

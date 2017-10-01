@@ -1,27 +1,28 @@
 <?php
-//
-//use PHPUnit\Framework\Testcase;
-//require_once './src/greeting.php';
-//
-//
-//class DeliberateCommaNamesTest extends TestCase {
-//
-//    protected $greeting;
-//
-//    protected function setUp()
-//    {
-//        $this->greeting = new Greeting();
-//        $this->names = ["Ryan", "\"Paula, Spock\""];
-//
-//    }
-//
-//
-//    public function testEscapedCommas()
-//    {
-//        $this->assertEquals('Hello, Ryan and Paula, Spock.', $this->greeting->greet($this->names));
-//    }
-//
-//
-//}
-//
-//?>
+
+use PHPUnit\Framework\Testcase;
+require_once './src/deliberateCommaNames.php';
+
+
+class DeliberateCommaNamesTest extends TestCase {
+
+    protected $greeter;
+    protected $name;
+
+    protected function setUp()
+    {
+        $this->name = new DeliberateCommaNames(["Spock", "\"Paula, Picard\""]);
+        $this->greeter = new Greeter();
+        $this->greeter->addName($this->name);
+
+    }
+
+    public function testEscapedCommas()
+    {
+        $this->assertEquals('Hello, Spock and Paula, Picard.', $this->greeter->greet($this->name));
+    }
+
+
+}
+
+?>
