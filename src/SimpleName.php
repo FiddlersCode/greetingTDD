@@ -1,7 +1,5 @@
 <?php
 
-require_once 'greeting.php';
-
 class SimpleName {
     public function __construct($name)
     {

@@ -2,7 +2,6 @@
 
 use PHPUnit\Framework\Testcase;
 
-require_once './src/greeting.php';
 require_once  './src/SimpleName.php';
 
 class SimpleNameTest extends TestCase {
@@ -21,9 +20,4 @@ class SimpleNameTest extends TestCase {
     {
         $this->assertEquals("Hello, Spock.", $this->nameObject->greet($this->name));
     }
-
-//    public function testNullNameGreeting()
-//    {
-//        $this->assertEquals("Hello, my friend.", $this->greeting->greet(null));
-//    }
 }
