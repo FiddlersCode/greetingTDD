@@ -1,7 +1,7 @@
 <?php
 require_once 'greeter.php';
 
-class SimpleName extends Greeter {
+class SimpleName {
 
     public function __construct($name)
     {

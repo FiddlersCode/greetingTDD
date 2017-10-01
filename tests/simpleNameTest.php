@@ -6,14 +6,13 @@ require_once './src/simpleName.php';
 class SimpleNameTest extends TestCase {
 
     protected $greeter;
-    protected $nameObject;
-    // Do these properties need to be declared?
+    protected $name;
 
     protected function setUp()
     {
-        $this->nameObject = new SimpleName("Spock");
+        $this->name = new SimpleName("Spock");
         $this->greeter = new Greeter();
-        $this->greeter->addName($this->nameObject);
+        $this->greeter->addName($this->name);
 
     }
 
