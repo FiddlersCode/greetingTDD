@@ -1,10 +1,13 @@
 <?php
 
 use PHPUnit\Framework\Testcase;
-
-require_once  './src/greeter.php';
+require_once './src/simpleName.php';
 
 class SimpleNameTest extends TestCase {
+
+    protected $greeter;
+    protected $nameObject;
+    // Do these properties need to be declared?
 
     protected function setUp()
     {
