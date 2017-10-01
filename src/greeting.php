@@ -29,7 +29,7 @@ class Greeting {
 
     private function returnUppercaseGreeting($name)
     {
-       return 'HELLO ' . $name;
+       return 'HELLO ' . $name . '!';
     }
 
     private function isArrayLessThan3($names)
@@ -85,7 +85,7 @@ class Greeting {
 
     private function returnStandardGreeting($name)
     {
-        return 'Hello, ' . $name;
+        return 'Hello, ' . $name . '.';
     }
 
     private function checkItemHas2Names($names)
