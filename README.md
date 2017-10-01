@@ -6,6 +6,8 @@ This was a training exercise at Kurt Geiger.  I initially didn't plan to commit 
 
 I modified slightly the README of the original, to make the requirements clearer.  I also changed the design from a single class to multiple classes, to clarify the responsibilities in each class.  The design for this code is inspired by Sandi Metz, particularly [POODR](http://www.poodr.com/).  
 
+Especially with this kata, there is an infinite amount of variations on greetings and edge cases.  On the principle of YAGNI, I limited myself to testing the specific examples provided by the authors rather than guessing what other contortions these specs might produce.
+
 ### [Diagram](https://www.draw.io/#HFiddlersCode%2FgreetingTDD%2Fmaster%2FgreetingKataPHPDiagram.xml)
 
 ### Instructions
