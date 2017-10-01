@@ -1,14 +1,15 @@
 <?php
 
 class SimpleName {
+
     public function __construct($name)
     {
         $this->name = $name;
     }
 
-    public function greet($name)
+    public function greet()
     {
-        return 'Hello, ' . $name . '.';
+        return 'Hello, ' . $this->name . '.';
 
     }
 }
