@@ -13,7 +13,7 @@ class greetingTest extends TestCase {
     protected function setUp()
     {
         $this->nameObject = new SimpleName("Spock");
-        $this->greeting = new Greeting("Paula");
+        $this->greeting = new Greeter();
     }
 
     public function testNameCanBeAddedToNamesArray()

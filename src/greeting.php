@@ -1,6 +1,6 @@
 <?php
 
-class Greeting
+class Greeter
 {
     public $names = [];
 
@@ -12,8 +12,7 @@ class Greeting
     public function greet()
     {
         foreach ($this->names as $name) {
-            $name->greet();
-            return $name;
+            return $name->greet();
         }
     }
 
