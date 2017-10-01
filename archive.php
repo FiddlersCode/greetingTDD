@@ -22,35 +22,6 @@ class Greeting {
 
     }
 
-    private function returnNullNameGreeting()
-    {
-        return 'Hello, my friend.';
-    }
-
-    private function returnUppercaseGreeting($name)
-    {
-        return 'HELLO ' . $name . '!';
-    }
-
-    private function returnArrayMoreThan2($names)
-    {
-        $names[(count($names) - 1)] = 'and ' . $names[(count($names) - 1)];
-        return 'Hello, ' . implode(', ', $names) . '.';
-    }
-
-    private function isMixedGreeting($names)
-    {
-        if (is_array($names)) {
-            foreach ($names as $name) {
-                if (ctype_upper($name)) {
-                    return true;
-                    break;
-                }
-            }
-        }
-        //Lewis, is this nesting ok?  I think it's pretty clear what the code does but it's a bit deeper than I'd normally like.
-    }
-
     private function returnMixedGreeting($names)
     {
         $i = 0;

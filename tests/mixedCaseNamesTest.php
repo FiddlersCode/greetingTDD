@@ -1,23 +1,25 @@
 <?php
-//
-//use PHPUnit\Framework\Testcase;
-//require_once './src/greeting.php';
-//
-//
-//class MixedCaseNamesTest extends TestCase
-//{
-//
-//    protected $greeting;
-//
-//    protected function setUp()
-//    {
-//        $this->greeting = new Greeting();
-//        $this->names = ['Amy', 'BRIAN', 'Charlotte'];
-//
-//    }
-//
-//    public function testMixedCaseNames()
-//    {
-//        $this->assertEquals('Hello, Amy and Charlotte. AND HELLO BRIAN!', $this->greeting->greet($this->names));
-//    }
-//}
+
+use PHPUnit\Framework\Testcase;
+require_once './src/mixedCaseNames.php';
+
+
+class MixedCaseNamesTest extends TestCase
+{
+
+    protected $greeter;
+    protected $name;
+
+    protected function setUp()
+    {
+        $this->name = new MixedCaseNames(["Spock", "Paula", "PICARD"]);
+        $this->greeter = new Greeter();
+        $this->greeter->addName($this->name);
+
+    }
+
+    public function testMixedCaseNames()
+    {
+        $this->assertEquals('Hello, Spock and Paula. AND HELLO PICARD!', $this->greeter->greet($this->name));
+    }
+}
