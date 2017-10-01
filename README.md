@@ -2,7 +2,9 @@
 by Paula Muldoon
 
 ### About
-This was a training exercise at Kurt Geiger.  We initially didn't plan to commit this to git - hence having six tests in a single commit.
+This was a training exercise at Kurt Geiger.  I initially didn't plan to commit this to git - hence having six tests in a single commit.
+
+### [Diagram](https://www.draw.io/#HFiddlersCode%2FgreetingTDD%2Fmaster%2FgreetingKataPHPDiagram.xml)
 
 ### Instructions
 - Run `composer init` and create the `composer.json` file
