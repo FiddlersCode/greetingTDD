@@ -32,21 +32,6 @@ class Greeting {
         return 'HELLO ' . $name . '!';
     }
 
-    private function isArrayLessThan3($names)
-    {
-        return is_array($names) && count($names) < 3;
-    }
-
-    public function returnArrayLessThan3($names)
-    {
-        return 'Hello, ' . implode(' and ', $names) . '.';
-    }
-
-    private function isArrayMoreThan2($names)
-    {
-        return is_array($names) && count($names) > 2;
-    }
-
     private function returnArrayMoreThan2($names)
     {
         $names[(count($names) - 1)] = 'and ' . $names[(count($names) - 1)];

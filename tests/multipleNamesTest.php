@@ -1,23 +1,25 @@
 <?php
-//
-//use PHPUnit\Framework\Testcase;
-//require_once './src/greeting.php';
-//
-//
-//class MultipleNamesTest extends TestCase
-//{
-//
-//    protected $greeting;
-//
-//    protected function setUp()
-//    {
-//        $this->greeting = new Greeting();
-//        $this->names = ['Ryan', 'Paula', 'Spock'];
-//
-//    }
-//
-//    public function testGreeting3Names()
-//    {
-//        $this->assertEquals('Hello, Ryan, Paula, and Spock.', $this->greeting->greet($this->names));
-//    }
-//}
+
+use PHPUnit\Framework\Testcase;
+require_once './src/multipleNames.php';
+
+
+class MultipleNamesTest extends TestCase
+{
+
+    protected $greeter;
+    protected $name;
+
+    protected function setUp()
+    {
+        $this->name = new MultipleNames(["Spock", "Paula", "Picard"]);
+        $this->greeter = new Greeter();
+        $this->greeter->addName($this->name);
+
+    }
+
+    public function testGreeting3Names()
+    {
+        $this->assertEquals('Hello, Spock, Paula, and Picard.', $this->greeter->greet($this->name));
+    }
+}
