@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\Testcase;
 
-require_once  './src/greeting.php';
+require_once  './src/greeter.php';
 require_once  './src/simpleName.php';
 
 class greetingTest extends TestCase {

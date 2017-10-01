@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\Testcase;
 
-require_once  './src/simpleName.php';
+require_once  './src/greeter.php';
 
 class SimpleNameTest extends TestCase {
 
