@@ -2,7 +2,7 @@
 require_once 'greeter.php';
 
 class MixedCaseNames {
-    
+
     private $upperGreeting;
 
     public function __construct($name)

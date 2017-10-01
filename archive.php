@@ -22,36 +22,7 @@ class Greeting {
 
     }
 
-    private function returnMixedGreeting($names)
-    {
-        $i = 0;
-        foreach ($names as $name)
-        {
-            if (ctype_upper($name)) {
-                $upperGreeting = 'AND HELLO ' . $name . '!';
-//                Lewis, is it best practice to define a variable at the top of the class?  Line 82($upperGreetings) is shouting at me.
-                unset ($names[$i]);
-            }
-            $i++;
 
-        }
-        return 'Hello, ' . implode(' and ', $names) . '. ' . $upperGreeting;
-
-    }
-
-    private function returnStandardGreeting($name)
-    {
-        return 'Hello, ' . $name . '.';
-    }
-
-    private function checkItemHas2Names($names)
-    {
-        foreach ($names as $name) {
-            if (strpos($name, ',')) {
-                return true;
-            }
-        }
-    }
 
     private function splitItemsWith2Names($names)
     {
