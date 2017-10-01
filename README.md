@@ -4,6 +4,8 @@ by Paula Muldoon
 ### About
 This was a training exercise at Kurt Geiger.  I initially didn't plan to commit this to git - hence having six tests in a single commit.
 
+I modified slightly the README of the original, to make the requirements clearer.  I also changed the design from a single class to multiple classes, to clarify the responsibilities in each class.  The design for this code is inspired by Sandi Metz, particularly [POODR](http://www.poodr.com/).  
+
 ### [Diagram](https://www.draw.io/#HFiddlersCode%2FgreetingTDD%2Fmaster%2FgreetingKataPHPDiagram.xml)
 
 ### Instructions
@@ -20,40 +22,43 @@ This [Kata](https://en.wikipedia.org/wiki/Kata_(programming)) is designed to hel
 
 This Kata was suggested by [Nick Gauthier](http://ngauthier.com) and inspired a bit by Bob from [Exercism](http://exercism.io).
 
-This Kata is designed to be used with [[Detroit-school TDD]].
+This Kata is designed to be used with [Detroit-school TDD](https://github.com/testdouble/contributing-tests/wiki/Detroit-school-TDD).
 
 ## Requirement 1
 
-Write a method `greet(name)` that interpolates `name` in a simple greeting. For example, when `name` is `"Bob"`, the method should return a string `"Hello, Bob."`.
+Write a method `greet(name)` that interpolates `name` in a simple greeting. 
+
+Example: when `name` is `"Bob"`, the method should return the string `"Hello, Bob."`.
 
 ## Requirement 2
 
-Handle nulls by introducing a stand-in. For example, when `name` is null, then the method should return the string `"Hello, my friend."`
+Handle nulls by introducing a stand-in. 
+Example: when `name` is null, then the method should return the string `"Hello, my friend."`
 
 ## Requirement 3
 
-Handle shouting. When `name` is all uppercase, then the method should shout back to the user. For example, when `name` is `"JERRY"` then the method should return the string `"HELLO JERRY!"`
+Handle uppercase names by returning an uppercase greeting.
+Example: when `name` is `"JERRY"` then the method should return the string `"HELLO JERRY!"`
 
 ## Requirement 4
 
-Handle two names of input. When `name` is an array of two names (or, in languages that support it, varargs or a splat), then both names should be printed. For example, when `name` is `["Jill", "Jane"]`, then the method should return the string `"Hello, Jill and Jane."`
+Handle an array of two names.  
+Example: when `name` is `["Jill", "Jane"]`, then the method should return the string `"Hello, Jill and Jane."`
 
 ## Requirement 5
 
-Handle arbitrarily names of input. When `name` represents more than two names, separate them with commas and close with an Oxford comma and "and". For example, when `name` is `["Amy", "Brian", "Charlotte"]`, then the method should return the string `"Hello, Amy, Brian, and Charlotte."`
+Handle arrays of 3 or more names. 
+Example: when `name` is `["Amy", "Brian", "Charlotte"]`, then the method should return the string `"Hello, Amy, Brian, and Charlotte."`
 
 ## Requirement 6
-
-Allow mixing of normal and shouted names by separating the response into two greetings. For example, when `name` is `["Amy", "BRIAN", "Charlotte"]`, then the method should return the string `"Hello, Amy and Charlotte. AND HELLO BRIAN!"`
+Handle arrays of mixed case names.
+Example: when `name` is `["Amy", "BRIAN", "Charlotte"]`, then the method should return the string `"Hello, Amy and Charlotte. AND HELLO BRIAN!"`
 
 ## Requirement 7
-
-If any entries in `name` are a string containing a comma, split it as its own input. For example, when `name` is `["Bob", "Charlie, Dianne"]`, then the method should return the string `"Hello, Bob, Charlie, and Dianne."`.
+Handle arrays of names where a single item in the array contains two names.
+Example: when `name` is `["Bob", "Charlie, Dianne"]`, then the method should return the string `"Hello, Bob, Charlie, and Dianne."`.
 
 ## Requirement 8
-
-Allow the input to escape intentional commas introduced by Requirement 7. 
-These can be escaped in the same manner that CSV is, with double quotes 
-surrounding the entry. For example, For example, when `name` is 
-["Bob", "\"Charlie, Dianne\""], then the method should return the string 
+Handle deliberate commas indicated by escaped double quotation marks.
+For example, For example, when `name` is ["Bob", "\"Charlie, Dianne\""], then the method should return the string 
 `"Hello, Bob and Charlie, Dianne."`.
